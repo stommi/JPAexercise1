@@ -37,6 +37,16 @@ public class MaailmaController {
         countryRepository.save(country);
     }
 
+    @PostMapping("api/lisaamaa")
+    public void restMetodiPost(@RequestBody Country country) {
+        countryRepository.save(country);
+    }
+
+    @DeleteMapping("api/poistamaa")
+    public void restMetodiDelete(@RequestParam(name="code", required = false) String hakusana) {
+        countryRepository.deleteById(hakusana);
+    }
+
 
 }
 
