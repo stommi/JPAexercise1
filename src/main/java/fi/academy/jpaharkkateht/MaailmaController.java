@@ -47,6 +47,16 @@ public class MaailmaController {
         countryRepository.deleteById(hakusana);
     }
 
+    @GetMapping("/api/maakoodilla{code}")
+    public Iterable<Country> restMetodiGetKaupunkiKoodilla(@RequestParam(name="code", required = false) String hakusana) {
+        return countryRepository.haeMaaKoodilla(hakusana);
+    }
+
+    @GetMapping("/api/maanimella{name}")
+    public Iterable<Country> restMetodiGetKaupunkiNimella(@RequestParam(name="name", required = false) String hakusana) {
+        return countryRepository.haeMaaNimella(hakusana);
+    }
+
 
 }
 
