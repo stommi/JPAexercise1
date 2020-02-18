@@ -20,6 +20,11 @@ public class CityController {
         return cityRepository.findByName(hakusana);
     }
 
+    @GetMapping("/api/kaupungithakuasukasluku")
+    public Iterable<City> restMetodiFindAsukasluku(@RequestParam(name = "population", required = false) Long hakusana) {
+        return cityRepository.findByPopulationGreaterThanEqual(hakusana);
+    }
+
 }
 
 

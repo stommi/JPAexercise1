@@ -4,4 +4,5 @@ import org.springframework.data.repository.CrudRepository;
 
 public interface CityRepository extends CrudRepository<City, Long> {
     Iterable<City> findByName(String name);
+    Iterable<City> findByPopulationGreaterThanEqual(Long population);
 }
