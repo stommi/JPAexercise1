@@ -1,7 +1,6 @@
 package fi.academy.jpaharkkateht;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Country {
@@ -18,6 +17,10 @@ public class Country {
     private String governmentform;
     private String headOfState;
     private String code2;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "capital")
+    private City city;
+
 
 
     public Country() {
@@ -55,11 +58,11 @@ public class Country {
         this.region = region;
     }
 
-    public Integer getsurfacearea() {
+    public Integer getSurfacearea() {
         return surfacearea;
     }
 
-    public void setsurfacearea(Integer surfacearea) {
+    public void setSurfacearea(Integer surfacearea) {
         this.surfacearea = surfacearea;
     }
 
@@ -109,5 +112,13 @@ public class Country {
 
     public void setCode2(String code2) {
         this.code2 = code2;
+    }
+
+    public City getCity() {
+        return city;
+    }
+
+    public void setCity(City city) {
+        this.city = city;
     }
 }
