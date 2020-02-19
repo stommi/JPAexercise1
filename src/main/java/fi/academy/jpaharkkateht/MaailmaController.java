@@ -57,6 +57,11 @@ public class MaailmaController {
         return countryRepository.haeMaaNimella(hakusana);
     }
 
+    @GetMapping("/api/maatjapaakaupungit")
+    public Iterable<Country> restMetodiGetMaatJaPaakaupungit() {
+        return countryRepository.tulostaMaatJaPaaKaupungit();
+    }
+
 
 }
 

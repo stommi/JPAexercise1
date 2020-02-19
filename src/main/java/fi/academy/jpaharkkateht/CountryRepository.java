@@ -10,4 +10,7 @@ public interface CountryRepository extends CrudRepository<Country, String> {
 
     @Query ("SELECT c FROM Country c WHERE c.name = :nimi")
     Iterable<Country> haeMaaNimella(@Param("nimi") String nimi);
+
+    @Query ("SELECT c.name, c.city.name FROM Country c")
+    Iterable<Country> tulostaMaatJaPaaKaupungit();
 }
