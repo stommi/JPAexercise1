@@ -1,6 +1,8 @@
 package fi.academy.jpaharkkateht;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -60,6 +62,12 @@ public class MaailmaController {
     @GetMapping("/api/maatjapaakaupungit")
     public Iterable<Country> restMetodiGetMaatJaPaakaupungit() {
         return countryRepository.tulostaMaatJaPaaKaupungit();
+    }
+
+    @GetMapping("/api/maatsivuittain")
+    public Iterable<Country> restMetodiGetMaat(@RequestParam(name="page") int page, @RequestParam(name="size") int size) {
+        Pageable p = PageRequest.of(page,size);
+        return countryRepository.findAll(p);
     }
 
 
