@@ -17,7 +17,7 @@ public class Country {
     private String governmentform;
     private String headOfState;
     private String code2;
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne
     @JoinColumn(name = "capital")
     private City city;
 
